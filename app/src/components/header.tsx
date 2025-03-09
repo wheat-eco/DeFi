@@ -13,9 +13,9 @@ export function Header() {
           <h1 className="text-lg font-semibold text-white">WheatChain</h1>
         </div>
 
-        {/* Right side - Connect Wallet Button (Added More Space) */}
-        <div className="ml-6"> {/* Added left margin for spacing */}
-          <button className="bg-white/10 hover:bg-white/15 text-white font-medium py-2 px-5 rounded-full border border-white/20 transition-colors text-sm">
+        {/* Right side - Smaller Connect Wallet Button with Spacing */}
+        <div className="ml-6">
+          <button className="bg-white/10 hover:bg-white/15 text-white font-medium py-1.5 px-4 rounded-full border border-white/20 transition-colors text-xs whitespace-nowrap">
             Connect Wallet
           </button>
         </div>
