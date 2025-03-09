@@ -7,37 +7,38 @@ import Image from "next/image"
 interface WalletModalProps {
   isOpen: boolean
   onClose: () => void
+  onSelect: (walletId: string) => void
 }
 
 const wallets = [
   {
     id: "sui",
     name: "SUI Wallet",
-    icon: "/logo.png",
+    icon: "/sui-wallet.png",
     available: true,
   },
   {
     id: "okx",
     name: "OKX Wallet",
-    icon: "/logo.png",
+    icon: "/okx-wallet.png",
     available: true,
   },
   {
     id: "stashed",
     name: "Stashed Wallet",
-    icon: "/logo.png",
+    icon: "/stashed-wallet.png",
     available: true,
   },
   {
     id: "suiet",
     name: "SUIET Wallet",
-    icon: "/logo.png",
+    icon: "/suiet-wallet.png",
     available: false,
     message: "Wallet not available for mobile devices",
   },
 ]
 
-export function WalletModal({ isOpen, onClose }: WalletModalProps) {
+export function WalletModal({ isOpen, onClose, onSelect }: WalletModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -57,7 +58,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", duration: 0.3 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-md bg-[#0a0e14] border border-[#7dd3fc]/20 rounded-3xl p-6 z-50"
+            className="fixed inset-x-4 top-1/2 -translate-y-1/2 max-w-md mx-auto bg-[#0a0e14] border border-[#7dd3fc]/20 rounded-3xl p-6 z-50"
           >
             {/* Close button */}
             <button
@@ -86,6 +87,7 @@ export function WalletModal({ isOpen, onClose }: WalletModalProps) {
                       : "bg-white/5 opacity-60 cursor-not-allowed"
                   }`}
                   disabled={!wallet.available}
+                  onClick={() => wallet.available && onSelect(wallet.id)}
                 >
                   <Image
                     src={wallet.icon || "/placeholder.svg"}

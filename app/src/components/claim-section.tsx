@@ -1,3 +1,5 @@
+import { ConnectButton } from "@suiet/wallet-kit"
+
 export function ClaimSection() {
   return (
     <div className="text-center space-y-6">
@@ -21,9 +23,7 @@ export function ClaimSection() {
           </div>
         </div>
 
-        <button className="w-full bg-[#7dd3fc] hover:bg-[#7dd3fc]/90 text-[#0a0e14] font-semibold py-4 px-8 rounded-full transition-colors text-lg">
-          Connect Wallet
-        </button>
+        <ConnectButton variant="large" />
       </div>
     </div>
   )
