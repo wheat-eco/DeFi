@@ -1,5 +1,4 @@
 :root {
-  /* Override Suiet Kit theme variables */
   --wkit-accent-hs: 192, 97%;
   --wkit-on-accent-rgb: 255, 255, 255;
   --wkit-bg-rgb: 10, 14, 34;
@@ -21,11 +20,13 @@
 }
 
 /* Hide the full address in the header button when connected */
-.wkit-button__address {
+.header-wallet .wkit-button__address,
+.header-wallet .wkit-connected-button__balance {
   display: none !important;
 }
 
-.wkit-button--connected::after {
+/* Replace with just "Connected" text */
+.header-wallet .wkit-button--connected::after {
   content: "Connected";
   color: rgba(255, 255, 255, 0.8);
 }
@@ -36,7 +37,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: var(--wkit-font-family-mono);
+  font-family: monospace;
 }
 
 /* Center the wallet modal */

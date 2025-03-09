@@ -11,7 +11,10 @@ export function Header() {
           <Image src="/logo.png" alt="WheatChain Logo" width={36} height={36} />
           <h1 className="text-xl font-bold text-white">WheatChain</h1>
         </div>
-        <ConnectButton />
+
+        <div className="header-wallet">
+          <ConnectButton />
+        </div>
       </div>
     </header>
   )
