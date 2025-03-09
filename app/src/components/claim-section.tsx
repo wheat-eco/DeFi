@@ -1,6 +1,11 @@
+"use client"
+
+import { useWallet } from "@suiet/wallet-kit"
 import { ConnectButton } from "@suiet/wallet-kit"
 
 export function ClaimSection() {
+  const wallet = useWallet()
+
   return (
     <div className="text-center space-y-6">
       <h1 className="text-4xl md:text-5xl font-bold text-white">Claim Token Allocation</h1>
@@ -19,11 +24,15 @@ export function ClaimSection() {
         <div className="space-y-2">
           <p className="text-gray-400">Wallet Address</p>
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
-            <p className="text-white/50">---</p>
+            <p className="text-white/50">{wallet.account ? wallet.account.address : "---"}</p>
           </div>
         </div>
 
-        <ConnectButton variant="large" />
+        {!wallet.connected && (
+          <div className="flex justify-center">
+            <ConnectButton />
+          </div>
+        )}
       </div>
     </div>
   )
