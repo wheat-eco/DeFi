@@ -1,0 +1,57 @@
+:root {
+  /* Override Suiet Kit theme variables */
+  --wkit-accent-hs: 192, 97%;
+  --wkit-on-accent-rgb: 255, 255, 255;
+  --wkit-bg-rgb: 10, 14, 34;
+  --wkit-on-bg-rgb: 255, 255, 255;
+  --wkit-button-width: auto;
+  --wkit-border-radius: 999px;
+}
+
+/* Custom styles for the wallet kit */
+.wkit-button {
+  height: 44px !important;
+  padding: 0 24px !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.wkit-button:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Hide the full address in the header button when connected */
+.wkit-button__address {
+  display: none !important;
+}
+
+.wkit-button--connected::after {
+  content: "Connected";
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Style the wallet address display in the claim section */
+.wallet-address {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--wkit-font-family-mono);
+}
+
+/* Center the wallet modal */
+.wkit-modal__container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+}
+
+.wkit-modal {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 0 auto !important;
+}
+

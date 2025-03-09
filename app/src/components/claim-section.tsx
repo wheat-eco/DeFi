@@ -23,8 +23,8 @@ export function ClaimSection() {
 
         <div className="space-y-2">
           <p className="text-gray-400">Wallet Address</p>
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
-            <p className="text-white/50">{wallet.account ? wallet.account.address : "---"}</p>
+          <div className="bg-[#0a0e14] backdrop-blur-sm border border-white/10 rounded-xl p-4">
+            <p className="wallet-address text-white/50">{wallet.account ? wallet.account.address : "---"}</p>
           </div>
         </div>
 
