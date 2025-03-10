@@ -3,6 +3,11 @@
 import { useWallet } from "@suiet/wallet-kit"
 import { ConnectButton } from "@suiet/wallet-kit"
 
+function truncateAddress(address: string) {
+  if (!address) return ""
+  return `${address.slice(0, 6)}...${address.slice(-4)}`
+}
+
 export function ClaimSection() {
   const wallet = useWallet()
 
@@ -24,7 +29,9 @@ export function ClaimSection() {
         <div className="space-y-2">
           <p className="text-gray-400">Wallet Address</p>
           <div className="bg-[#0a0e14] backdrop-blur-sm border border-white/10 rounded-xl p-4">
-            <p className="wallet-address text-white/50">{wallet.account ? wallet.account.address : "---"}</p>
+            <p className="wallet-address text-white/50 font-mono">
+              {wallet.account ? truncateAddress(wallet.account.address) : "---"}
+            </p>
           </div>
         </div>
 

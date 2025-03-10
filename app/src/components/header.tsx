@@ -15,7 +15,6 @@ export function Header() {
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -27,6 +26,13 @@ export function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  const handleConnect = () => {
+    // If already connected, don't try to select
+    if (!wallet.connected) {
+      wallet.select()
+    }
+  }
+
   return (
     <header className="relative z-50">
       <div className="flex justify-between items-center px-8 py-4 bg-[#0a0e14]/50 backdrop-blur-md border border-white/10 rounded-full mx-4 my-4">
@@ -36,7 +42,6 @@ export function Header() {
         </div>
 
         <div className="header-wallet relative" ref={dropdownRef}>
-          {/* Hidden original connect button for functionality */}
           <div className="hidden">
             <ConnectButton />
           </div>
@@ -44,7 +49,7 @@ export function Header() {
           {wallet.connected ? (
             <>
               <button className="wallet-button" onClick={() => setShowDropdown(!showDropdown)}>
-                <Image src="/sui-logo.png" alt="Sui" width={20} height={20} className="rounded-full" />
+                <Image src="/sui-icon.png" alt="Sui" width={20} height={20} className="rounded-full" />
                 <span className="text-white/90 text-sm">{truncateAddress(wallet.account?.address || "")}</span>
                 <ChevronDown
                   className={`w-4 h-4 text-white/60 transition-transform ${showDropdown ? "rotate-180" : ""}`}
@@ -66,7 +71,7 @@ export function Header() {
               )}
             </>
           ) : (
-            <button className="wallet-button" onClick={() => wallet.select()}>
+            <button className="wallet-button" onClick={handleConnect}>
               Connect Wallet
             </button>
           )}
