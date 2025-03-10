@@ -7,37 +7,56 @@
   --wkit-border-radius: 999px;
 }
 
-/* Custom styles for the wallet kit */
-.wkit-button {
-  height: 44px !important;
-  padding: 0 24px !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-.wkit-button:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-/* Hide the full address in the header button when connected */
-.header-wallet .wkit-button__address,
-.header-wallet .wkit-connected-button__balance {
+/* Hide default Suiet button styles */
+.header-wallet .wkit-button {
   display: none !important;
 }
 
-/* Replace with just "Connected" text */
-.header-wallet .wkit-button--connected::after {
-  content: "Connected";
-  color: rgba(255, 255, 255, 0.8);
+/* Custom wallet button styles */
+.wallet-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(10, 14, 34, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-/* Style the wallet address display in the claim section */
-.wallet-address {
+.wallet-button:hover {
+  background: rgba(20, 24, 44, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown styles */
+.wallet-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: rgba(10, 14, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.5rem;
+  min-width: 160px;
+}
+
+.disconnect-button {
   width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: monospace;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.disconnect-button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Center the wallet modal */
