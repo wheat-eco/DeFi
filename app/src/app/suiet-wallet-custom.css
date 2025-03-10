@@ -4,7 +4,8 @@
   --wkit-bg-rgb: 10, 14, 34;
   --wkit-on-bg-rgb: 255, 255, 255;
   --wkit-button-width: auto;
-  --wkit-border-radius: 999px;
+  --wkit-border-radius: 16px;
+  --wkit-font-family: "Inter", sans-serif;
 }
 
 /* Hide default Suiet button styles */
@@ -59,27 +60,61 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Center the wallet modal */
+/* Custom modal styles */
 .wkit-modal__container {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   min-height: 100vh !important;
+  background: rgba(0, 0, 0, 0.7) !important;
 }
 
 .wkit-modal {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  transform: none !important;
-  margin: 0 auto !important;
+  background: #0a0e14 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 24px !important;
+  padding: 24px !important;
+  width: 90% !important;
+  max-width: 400px !important;
 }
 
-/* Update wallet address display in claim section */
-.wallet-address {
-  width: 100%;
-  text-align: center;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+.wkit-modal__header {
+  font-size: 24px !important;
+  color: white !important;
+  text-align: center !important;
+  margin-bottom: 24px !important;
+}
+
+.wkit-modal__close {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.wkit-select-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  margin-bottom: 8px !important;
+  color: white !important;
+}
+
+.wkit-select-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.wkit-select-button__img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+}
+
+.wkit-select-button__name {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+.wkit-select-button__status {
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
